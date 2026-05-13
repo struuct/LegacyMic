@@ -7,3 +7,5 @@
 **/obj/
 Directory.Build.props
 Directory.Build.targets
+/.vs/LegacyMic/FileContentIndex
+/.vs/LegacyMic/v18
