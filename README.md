@@ -1,5 +1,5 @@
 # LegacyMic
-This is a BepInEx mod for Gorilla Tag that removes the forced clear microphone effect forced onto you by VIM and restores the legacy mic quality
+This is a BepInEx mod for Gorilla Tag that removes the clear microphone effect forced onto you by VIM and restores the legacy mic quality
 
 ## Installation
 1. Download the latest `LegacyMic.dll` from the [Releases page](https://github.com/struuct/LegacyMic/releases)
