@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyMic", "LegacyMic\LegacyMic.csproj", "{9B95208E-721E-4B23-942E-EE943ED26EB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B95208E-721E-4B23-942E-EE943ED26EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B95208E-721E-4B23-942E-EE943ED26EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B95208E-721E-4B23-942E-EE943ED26EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B95208E-721E-4B23-942E-EE943ED26EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
