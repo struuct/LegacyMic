@@ -16,7 +16,7 @@ public sealed class Plugin : BaseUnityPlugin
     internal static int Bitrate;
     internal static int SamplingRate;
 
-    internal static Quality QualityMode;
+    private static Quality QualityMode;
 
     private void Awake()
     {
@@ -34,14 +34,16 @@ public sealed class Plugin : BaseUnityPlugin
             "SamplingRate", 16000,
             "Sampling rate of the microphone. LegacyMic bitrate -> 16000, HQ bitrate -> 24000").Value;
         
-        if (QualityMode == Quality.Legacy) {
-            Bitrate = 20000;
-            SamplingRate = 16000;
-        }
-
-        if (QualityMode == Quality.HQ) {
-            Bitrate = 30000;
-            SamplingRate = 24000;
+        switch (QualityMode)
+        {
+            case Quality.Legacy:
+                Bitrate = 20000;
+                SamplingRate = 16000;
+                break;
+            case Quality.HQ:
+                Bitrate = 30000;
+                SamplingRate = 24000;
+                break;
         }
 
         GorillaTagger.OnPlayerSpawned(() =>
