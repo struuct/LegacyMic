@@ -4,5 +4,7 @@ namespace LegacyMic.Models;
 
 internal sealed class Callbacks : MonoBehaviourPunCallbacks
 {
-    public override void OnJoinedRoom() => Plugin.Instance?.SetQuality(30000, 24000);
+    public override void OnJoinedRoom() {
+        Plugin.Instance?.SetQuality(Plugin.Bitrate, Plugin.SamplingRate);
+    }
 }

@@ -13,10 +13,37 @@ public sealed class Plugin : BaseUnityPlugin
     internal static Plugin? Instance { get; private set; }
     private static bool Initialized;
 
+    internal static int Bitrate;
+    internal static int SamplingRate;
+
+    internal static Quality QualityMode;
+
     private void Awake()
     {
         Instance = this;
+
+        QualityMode = Config.Bind("General",
+            "Quality", Quality.Legacy,
+            "The mode to set the mic quality to.").Value;
+
+        Bitrate = Config.Bind("Microphone",
+            "Bitrate", 20000,
+            "Bitrate of the microphone. LegacyMic bitrate -> 20000, HQ bitrate -> 30000").Value;
         
+        SamplingRate = Config.Bind("Microphone",
+            "SamplingRate", 16000,
+            "Sampling rate of the microphone. LegacyMic bitrate -> 16000, HQ bitrate -> 24000").Value;
+        
+        if (QualityMode == Quality.Legacy) {
+            Bitrate = 20000;
+            SamplingRate = 16000;
+        }
+
+        if (QualityMode == Quality.HQ) {
+            Bitrate = 30000;
+            SamplingRate = 24000;
+        }
+
         GorillaTagger.OnPlayerSpawned(() =>
         {
             if (Initialized) return;
@@ -47,4 +74,10 @@ public sealed class Plugin : BaseUnityPlugin
             recorder.SourceType = Recorder.InputSourceType.Microphone;
         recorder.RestartRecording(true);
     }
+}
+
+public enum Quality {
+    Legacy = 0,
+    HQ = 1,
+    Custom = 2
 }
